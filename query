@@ -1,0 +1,11 @@
+menampilkan jumlah simpul jaringan 
+```
+select distinct jikn.repository.identifier as ID, jikn.actor_i18n.authorized_form_of_name as nama_simpul, jikn.actor_i18n.culture from jikn.repository
+left join jikn.actor_i18n on actor_i18n.id = repository.id
+where actor_i18n.culture = 'id' order by repository.identifier asc;
+```
+menghitung jumlah simpul
+```
+select count(repository.id) as jml from jikn.repository
+where repository.identifier is not null
+```
